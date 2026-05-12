@@ -1,13 +1,10 @@
 let capture;
 let faceMesh;
 let faces = [];
-let earringImg;
 
 function preload() {
   // 初始化 ml5 faceMesh 模型
   faceMesh = ml5.faceMesh();
-  // 載入位於 pic/acc/ 目錄下的耳環圖片
-  earringImg = loadImage('pic/acc/acc1_ring.png');
 }
 
 function setup() {
@@ -58,8 +55,12 @@ function drawEarring(kp, displayW, displayH) {
     let x = map(kp.x, 0, capture.width, -displayW / 2, displayW / 2);
     let y = map(kp.y, 0, capture.height, -displayH / 2, displayH / 2);
 
-    // 在耳垂位置顯示耳環圖片，稍微往下移一點點（+15）增加懸掛感
-    image(earringImg, x, y + 15, 30, 30);
+    fill(255, 255, 0); // 黃色
+    noStroke();
+    for (let i = 0; i < 3; i++) {
+      // 由耳垂位置往下繪製三個圓圈
+      circle(x, y + (i * 15), 10);
+    }
   }
 }
 
