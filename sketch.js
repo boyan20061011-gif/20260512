@@ -23,6 +23,14 @@ function gotFaces(results) {
 function draw() {
   background('#e7c6ff');
 
+  // 在擷取影像外（畫布上方）顯示文字
+  fill(0); // 設定文字顏色為黑色
+  noStroke();
+  textAlign(CENTER, CENTER);
+  textSize(24);
+  text("414730654魏伯諺", width / 2, height * 0.07);
+  text("作品為影像辨識_耳環臉譜", width / 2, height * 0.13);
+
   let w = width * 0.5;
   let h = height * 0.5;
 
